@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  redis-vector:
+     image: redis/redis-stack-server:latest
+     ports:
+        - "6379:6379"
+  
+  kafka-bus:
+    image: docker.redpanda.com/redpandadata/redpanda:latest
+    command: ["redpanda", "start", "--overwritable-config", "redpanda.auto_create_topics_enabled=true"]
+    ports:
+        - "9092:9092"

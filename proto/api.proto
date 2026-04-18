@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package semantic_cache;
+option go_package = "github.com/THETITAN220/FSCgRPC/gateway/proto";
+
+service EncoderService{
+    rpc GetEmbedding (TextRequest) returns (EmbeddingResponse);
+}
+
+service CoreAppService{
+    rpc ProcessQuery (TextRequest) returns (QueryResponse);
+}
+
+message TextRequest{
+    string text = 1;
+    string user_id = 2;
+}
+
+message EmbeddingResponse{
+    repeated float vector = 1;
+}
+
+message QueryResponse{
+    string answer = 1;
+    bool cached = 2;
+}
