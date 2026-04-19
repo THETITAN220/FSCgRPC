@@ -43,7 +43,7 @@ func semanticCacheInterceptor(
 	embedRes, err := encoderClient.GetEmbedding(ctx, &pb.TextRequest{Text: textReq.GetText()})
 	if err != nil {
 		log.Printf("[Interceptor] Failed to get embedding: %v", err)
-		return handler(ctx, req) 
+		return handler(ctx, req)
 	}
 
 	log.Printf("[Interceptor] Success! Received vector with %d dimensions.", len(embedRes.GetVector()))
@@ -57,7 +57,7 @@ func main() {
 		log.Fatalf("Failed to connect to Python Encoder: %v", err)
 	}
 	defer conn.Close()
-	
+
 	encoderClient = pb.NewEncoderServiceClient(conn)
 	log.Println("Connected to Python Encoder on :50052")
 
