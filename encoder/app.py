@@ -33,7 +33,7 @@ def serve():
     
     server.add_insecure_port('[::]:50052')
     server.start()
-    print("Python Encoder Service running on port 50052...")
+    print("Encoder Service running on port 50052...")
     
     server.wait_for_termination()
 
