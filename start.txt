@@ -1,0 +1,7 @@
+minikube start
+
+kubectl get pods
+
+kubectl port-forward svc/monitoring-grafana 3000:80
+
+kubectl port-forward svc/monitoring-kube-prometheus-prometheus 9090:9090

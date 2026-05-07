@@ -63,7 +63,7 @@ func semanticCacheInterceptor(
 	}
 
 	vectorBytes := float32ToByte(embedRes.GetVector())
-	
+
 	redisQuery := "*=>[KNN 1 @vector $query_vec AS score]"
 
 	res, err := rdb.Do(ctx,
